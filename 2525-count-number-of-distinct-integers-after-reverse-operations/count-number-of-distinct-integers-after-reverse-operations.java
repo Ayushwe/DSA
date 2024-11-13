@@ -1,20 +1,18 @@
 class Solution {
-    private int reverse(int n){
-        int rev =0;
-        while(n>0){
-            int last = n%10;
-            rev = rev*10+last;
-            n/=10;
+    static int reverse(int a){
+        int sum=0;
+        while(a>0){
+            sum=sum*10+a%10;
+            a/=10;
         }
-        return rev;
+        return sum;
     }
     public int countDistinctIntegers(int[] nums) {
-        int n =nums.length;
-        HashSet<Integer> map = new HashSet<>();
-        for(int num: nums){
-            map.add(num);
-            map.add(reverse(num));
+        HashSet<Integer> h = new HashSet<>();
+        for(int a:nums){
+            h.add(a);
+            h.add(reverse(a));
         }
-        return map.size();
+        return h.size();
     }
 }
