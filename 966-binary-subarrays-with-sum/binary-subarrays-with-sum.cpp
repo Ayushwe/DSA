@@ -1,16 +1,24 @@
 class Solution {
 public:
     int numSubarraysWithSum(vector<int>& nums, int goal) {
-        unordered_map<int,int>prefixMap;
-        prefixMap[0]=1;
-        int prefixSum=0;
-        int count=0;
-        for(int i=0;i<nums.size();i++){
-            prefixSum += nums[i];
-            if(prefixMap.find(prefixSum-goal) != prefixMap.end()){
-                count += prefixMap[prefixSum-goal];
+        return SUMARRAY(nums,goal)-SUMARRAY(nums,goal-1);
+    }
+    int SUMARRAY(vector<int>& nums, int goal) {
+        if(goal<0){
+            return 0;
+        }
+        int count = 0;
+        int CurWindowSum = 0;
+        int low = 0;
+        int high = 0;
+        while(high<nums.size()){
+            CurWindowSum += nums[high];
+            while(CurWindowSum>goal){
+                CurWindowSum -= nums[low];
+                low++;
             }
-            prefixMap[prefixSum]++;
+            count = count +(high-low)+1;
+            high++;
         }
         return count;
     }
