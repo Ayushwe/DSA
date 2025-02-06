@@ -10,28 +10,14 @@
  */
 class Solution {
 public:
-    int getLength(ListNode* head) {
-        int count = 0;
-        while (head != nullptr) {
-            count++;
-            head = head->next;
-        }
-        return count;
-    }
-
     ListNode* middleNode(ListNode* head) {
-        // brute force approach
-       int length = getLength(head);
-       length = (length/2)+1;
-       ListNode* temp = head;
-       int count=0;
-       while(temp!=NULL){
-        count++;
-        if(count==length){
-            break;
+        // optimised code using slow and fast pointer
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while(fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
         }
-        temp = temp->next;
-       }
-       return temp;
+        return slow;
     }
 };
