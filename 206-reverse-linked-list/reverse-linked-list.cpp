@@ -21,7 +21,19 @@ public:
         return Small_Head;
     }
     ListNode* reverseList(ListNode* head) {
-        ListNode*ans=reverse(head);
-        return ans;
+        if(head==NULL || head->next==NULL){
+            return head;
+        }
+        ListNode*temp = head;
+        ListNode* prev = NULL;
+        ListNode* forward = head;
+        while(temp){
+            forward = temp->next;
+            temp->next = prev;
+            prev = temp;
+            // forward->next = prev;
+            temp = forward;
+        }
+        return prev;
     }
 };
