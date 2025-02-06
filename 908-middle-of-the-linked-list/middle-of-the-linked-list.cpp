@@ -20,6 +20,7 @@ public:
     }
 
     ListNode* middleNode(ListNode* head) {
+        // brute force approach
        int length = getLength(head);
        length = (length/2)+1;
        ListNode* temp = head;
