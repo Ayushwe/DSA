@@ -15,25 +15,27 @@ public:
         if(head==NULL || head->next==NULL){
             return head;
         }
-        ListNode*Small_Head=reverse(head->next);
-        head->next->next=head;
+        ListNode* NewHead=reverse(head->next);
+        ListNode* front = head->next;
+        front->next=head;
         head->next=NULL;
-        return Small_Head;
+        return NewHead;
     }
     ListNode* reverseList(ListNode* head) {
-        if(head==NULL || head->next==NULL){
-            return head;
-        }
-        ListNode*temp = head;
-        ListNode* prev = NULL;
-        ListNode* forward = head;
-        while(temp){
-            forward = temp->next;
-            temp->next = prev;
-            prev = temp;
-            // forward->next = prev;
-            temp = forward;
-        }
-        return prev;
+        // if(head==NULL || head->next==NULL){
+        //     return head;
+        // }
+        // ListNode*temp = head;
+        // ListNode* prev = NULL;
+        // ListNode* forward = head;
+        // while(temp){
+        //     forward = temp->next;
+        //     temp->next = prev;
+        //     prev = temp;
+        //     temp = forward;
+        // }
+        // return prev;
+        return reverse(head);
+        // return ans;
     }
 };
