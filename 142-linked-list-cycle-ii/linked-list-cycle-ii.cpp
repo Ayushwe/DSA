@@ -9,6 +9,7 @@
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
+        // Brute force
         ListNode *temp = head;
         unordered_map<ListNode*,int>mpp;
         while(temp != NULL){
