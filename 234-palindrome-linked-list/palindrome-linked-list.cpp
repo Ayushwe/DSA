@@ -30,11 +30,11 @@ public:
         // find the mid element of the LL
         ListNode* slow =  head;
         ListNode* fast =  head;
-        while(fast != NULL && fast->next != NULL){
+        while(fast->next != NULL && fast->next->next != NULL){
             slow = slow->next;
             fast =  fast->next->next;
         }
-        ListNode* Newhead = reverseLL(slow);
+        ListNode* Newhead = reverseLL(slow->next);
         ListNode* second = Newhead;
         ListNode* first = head;
         while(second != NULL){
