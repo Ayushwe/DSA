@@ -1,22 +1,22 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        int i=0;
         string ans = "";
-        while(i<s.length()){
-            while(i<s.length() && s[i] == ' '){
+        int i=0;
+        while(i<s.length() && i<s.length()){
+            while(s[i] == ' '){
                 i++;
             }
             if(i>=s.length()){
                 break;
             }
-            int j=i+1;
+            int j=i;
             while(j<s.length() && s[j] != ' '){
                 j++;
             }
             string w = "";
             w = s.substr(i,j-i);
-            if(ans.empty()){
+            if(ans.length()==0){
                 ans += w;
             }
             else{
