@@ -3,17 +3,17 @@ public:
     string removeOuterParentheses(string s) {
         string ans = "";
         stack<char>st;
-        for(char c : s){
-            if(c == '('){
+        for(int i=0;i<s.length();i++){
+            if(s[i] == '('){
                 if(!st.empty()){
-                    ans += c;
+                    ans += s[i];
                 }
-                st.push(c);
+                st.push(s[i]);
             }
-            if(c == ')'){
+            if(s[i] == ')'){
                 st.pop();
                 if(!st.empty()){
-                    ans += c;
+                    ans += s[i];
                 }
             }
         }
