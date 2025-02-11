@@ -5,7 +5,8 @@ public:
             return false;
         }
 
-        string concatenated = goal+goal;
-        return concatenated.find(s) != string::npos;
+        string concatenated = goal + goal;
+
+        return concatenated.find(s) != string :: npos;
     }
 };
