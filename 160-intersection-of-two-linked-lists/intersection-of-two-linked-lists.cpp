@@ -9,6 +9,7 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        // brute force
         ListNode *temp1 = headA;
         ListNode *temp2 = headB;
         unordered_map<ListNode*, int> mpp;
