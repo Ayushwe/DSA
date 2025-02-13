@@ -1,10 +1,10 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        if(s.length()==0){
+        if(s.length() == 0){
             return 0;
         }
-        int maxLen = INT_MIN;
+        int maxi = INT_MIN;
         int start = 0;
         int end = 0;
         unordered_map<char,int>mpp;
@@ -14,9 +14,10 @@ public:
                 mpp[s[start]]--;
                 start++;
             }
-            maxLen = max(maxLen,end-start+1);
+            int currLen = end-start+1;
+            maxi = max(maxi,currLen);
             end++;
         }
-        return maxLen;
+        return maxi;
     }
 };
