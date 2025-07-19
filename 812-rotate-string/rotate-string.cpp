@@ -4,9 +4,7 @@ public:
         if(s.length() != goal.length()){
             return false;
         }
-
-        string concatenated = goal + goal;
-
-        return concatenated.find(s) != string :: npos;
+        string temp = s+s;
+        return temp.contains(goal);
     }
 };
