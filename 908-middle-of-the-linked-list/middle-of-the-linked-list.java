@@ -15,12 +15,9 @@ class Solution {
         if(fast.next == null){
             return head;
         }
-        if(fast.next.next == null){
-            return fast.next;
-        }
         while(fast != null && fast.next != null){
-            slow = slow.next;
             fast = fast.next.next;
+            slow = slow.next;
         }
         return slow;
     }
