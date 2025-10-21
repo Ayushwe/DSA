@@ -3,9 +3,9 @@ class Solution {
         int start = 0;
         int end = s.length-1;
         while(start<end){
-            char temp = s[end];
-            s[end] = s[start];
-            s[start] = temp;
+            char temp = s[start];
+            s[start]  = s[end];
+            s[end] = temp;
             start++;
             end--;
         }
